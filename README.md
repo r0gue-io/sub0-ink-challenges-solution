@@ -4,7 +4,6 @@
 
 </div>
 
----
 
 ink! programming language challenges made for the Sub0 Reset Bangkok
 
