@@ -6,6 +6,8 @@ edition = "2021"
 
 [dependencies]
 ink = { git = "https://github.com/r0gue-io/ink", branch = "sub0", default-features = false }
+polkavm-derive = "0.11.0"
+
 # superdao = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false, features = [
 #     "ink-as-dependency",
 # ] }
@@ -15,7 +17,6 @@ superdao = { path = "../../multichain-superdao/contracts/superdao", default-feat
 superda0-traits = { path = "../../multichain-superdao/traits", default-features = false, features = [
     "ink-as-dependency",
 ] }
-polkavm-derive = "0.11.0"
 
 [lib]
 path = "lib.rs"
