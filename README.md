@@ -2,6 +2,10 @@
 
 # Sub0 `ink!` Challenges
 
+</div>
+
+---
+
 ink! programming language challenges made for the Sub0 Reset Bangkok
 
 </p>
@@ -61,6 +65,10 @@ cargo test
   - Unit test for constructor and setting DAO name.
   - Be built and deployed on Pop Network testnet.
 - **Submission Guidelines:**
+  <<<<<<< HEAD
+  =======
+  - All test with prefix `challenge_1__` must pass.
+    > > > > > > > 719a1fe (chore: update README.md)
   - Verify with R0GUE DevRel, and post on X.
 - **Prize:** sub0 merch
 
@@ -75,6 +83,10 @@ cargo test
   - Have methods to create proposals and a method to vote on proposals.
   - Unit tests for adding members, votes, and proposals.
 - **Submission Guidelines:**
+  <<<<<<< HEAD
+  =======
+  - All test with prefix `challenge_2__` must pass.
+    > > > > > > > 719a1fe (chore: update README.md)
   - Verify with R0GUE DevRel, and post on X.
 - **Prize:** sub0 merch
 
