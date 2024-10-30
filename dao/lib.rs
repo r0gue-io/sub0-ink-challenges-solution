@@ -218,14 +218,17 @@ mod dao {
     }
 
     impl SubDao for Dao {
+        // Connect your DAO to the Super DAO with registration and voting
+
         #[ink(message)]
-        fn create_superdao_proposal(&mut self) -> Result<(), DaoError> {
+        fn create_superdao_contract_call_proposal(&mut self) -> Result<(), DaoError> {
             let caller = self.env().caller();
             // - Error: Throw error `DaoError::VoterNotRegistered` if the voter is not registered
             if !self.has_voter(caller) {
                 return Err(DaoError::VoterNotRegistered);
             }
 
+            // - Success: Create a SuperDao proposal to call a contract method.
             let mut superdao = self
                 .superdao_address
                 .map(|address| call_superdao(address))
@@ -251,7 +254,7 @@ mod dao {
                 return Err(DaoError::VoterNotRegistered);
             }
 
-            // - Success: Create a SuperDao proposal.
+            // - Success: Vote a SuperDao proposal.
             let mut superdao = self
                 .superdao_address
                 .map(|address| call_superdao(address))
@@ -262,6 +265,8 @@ mod dao {
             Ok(())
         }
 
+        // Support creating cross-chain proposals to the Super DAO
+
         #[ink(message)]
         fn create_superdao_cross_chain_proposal(&mut self) -> Result<(), DaoError> {
             let caller = self.env().caller();
@@ -270,7 +275,7 @@ mod dao {
                 return Err(DaoError::VoterNotRegistered);
             }
 
-            // - Success: Create a SuperDao corss-chain proposal.
+            // - Success: Create a SuperDao proposal to execute a cross-chain message.
             let mut superdao = self
                 .superdao_address
                 .map(|address| call_superdao(address))
@@ -350,6 +355,21 @@ mod dao {
                 dao.get_proposal(proposal),
                 Some(BasicProposal { vote_count: 1 })
             );
+        }
+
+        #[ink::test]
+        fn challenge_3_test_create_superdao_contract_call_proposal() {
+            unimplemented!();
+        }
+
+        #[ink::test]
+        fn challenge_3_test_vote_superdao_proposal() {
+            unimplemented!();
+        }
+
+        #[ink::test]
+        fn challenge_4_test_vote_superdao_cross_chain_proposal() {
+            unimplemented!();
         }
     }
 }
