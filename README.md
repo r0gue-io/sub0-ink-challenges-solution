@@ -2,7 +2,6 @@
 
 # Sub0 `ink!` Challenges
 
-
 ink! programming language challenges made for the Sub0 Reset Bangkok
 
 </p>
@@ -31,9 +30,28 @@ To test your contract, run:
 cargo test
 ```
 
----
+<br/>
 
-### ✒️ Challenge 1: Basics of ink! and setting up a DAO contract
+<div align="center">
+
+# 🏆 ChALLENGES
+
+| ✒️ Challenges | Description                                                          | Link to the challenge                       |
+| ------------- | -------------------------------------------------------------------- | ------------------------------------------- |
+| Challenge 1   | Basics of ink! and setting up a DAO contract                         | [Take challenge](./challenges/challenge-1/) |
+| Challenge 2   | Membership and voting mechanism to the DAO.                          | [Take challenge](./challenges/challenge-2/) |
+| Challenge 3   | Connect your DAO to the Super DAO with registration and voting       | [Take challenge](./challenges/challenge-3/) |
+| Challenge 4   | Support creating cross-chain proposals to the Super DAO              | [Take challenge](./challenges/challenge-4/) |
+| Challenge 5   | Build a UI for your DAO                                              | [Take challenge](./challenges/challenge-5/) |
+| Challenge 6   | Ideate and design a multichain, permissionless solution for Polkadot | [Take challenge](./challenges/challenge-6/) |
+| Challenge 7   | Use the Pop API to create a fungibles token for token-backed voting  | [Take challenge](./challenges/challenge-7/) |
+
+</div>
+
+<br/>
+<br/>
+
+## ✒️ Challenge 1: Basics of ink! and setting up a DAO contract
 
 - **Difficulty**: Easy
 - **Submission Criteria:** ink! contract must
@@ -43,13 +61,10 @@ cargo test
   - Unit test for constructor and setting DAO name.
   - Be built and deployed on Pop Network testnet.
 - **Submission Guidelines:**
-  - All test with prefix `challenge_1__` must pass.
   - Verify with R0GUE DevRel, and post on X.
 - **Prize:** sub0 merch
 
----
-
-### ✒️ Challenge 2: Membership and voting mechanism to the DAO.
+## ✒️ Challenge 2: Membership and voting mechanism to the DAO.
 
 - **Difficulty**: Mid
 - **Submission Criteria:** ink! contract must
@@ -60,13 +75,10 @@ cargo test
   - Have methods to create proposals and a method to vote on proposals.
   - Unit tests for adding members, votes, and proposals.
 - **Submission Guidelines:**
-  - All test with prefix `challenge_2__` must pass.
   - Verify with R0GUE DevRel, and post on X.
 - **Prize:** sub0 merch
 
----
-
-### ✒️ Challenge 3:- Connect your DAO to the Super DAO with registration and voting
+## ✒️ Challenge 3: Connect your DAO to the Super DAO with registration and voting
 
 - **Difficulty**: Mid
 - **Submission Criteria:** ink! contract must
@@ -77,13 +89,10 @@ cargo test
   - Create proposals to call another contract - using trait-based contract calling.
   - E2E test for cross-contract call.
 - **Submission Guidelines:**
-  - All test with prefix `challenge_3__` must pass.
   - Verify with R0GUE DevRel, and post on X.
 - **Prize:** Sub0 Merch & ink! sports towel
 
----
-
-### ✒️ Challenge 4: Support creating cross-chain proposals to the Super DAO
+## ✒️ Challenge 4: Support creating cross-chain proposals to the Super DAO
 
 - **Difficulty**: Advanced
 - **Submission Criteria:** ink! contract must
@@ -91,13 +100,10 @@ cargo test
   - A deployed contract on Pop Network Testnet
   - Have a cross-chain proposal successfully executed
 - **Submission Guidelines:**
-  - All test with prefix `challenge_4__` must pass.
   - Verify with R0GUE DevRel, and post on X.
 - **Prize:** Sub0 merch
 
----
-
-### ✒️ Challenge 5: Build a UI for your DAO
+## ✒️ Challenge 5: Build a UI for your DAO
 
 - **Difficulty:** Mid
 - **Submission Criteria:** The UI must support
@@ -107,9 +113,7 @@ cargo test
 - **Submission Guidelines:** Verify with R0GUE or Dedot DevRel, and post on X
 - **Prize:** Sub0 merch & ink! sports towel
 
----
-
-### ✒️ Challenge 6: Ideate and design a multichain, permissionless solution for Polkadot
+## ✒️ Challenge 6: Ideate and design a multichain, permissionless solution for Polkadot
 
 - **Difficulty:** Easy
 - **Submission Criteria:** A PDF containing
@@ -117,12 +121,19 @@ cargo test
   - What their idea solves, how it works, and team members (if applicable)
 - **Submission Guidelines:** Verify with R0GUE DevRel
 
----
-
-### ✒️ Challenge 7 (Bonus): Use the Pop API to create a fungibles token for token-backed voting
+## ✒️ Challenge 7 (Bonus): Use the Pop API to create a fungibles token for token-backed voting
 
 - **Difficulty:** Mid
 - **Submission Criteria:** DAO contract must
   - Use the fungibles Pop API to create a new asset, mint the asset, and use the asset for token-backed voting
 - **Submission Guidelines:** Verify with R0GUE DevRel, post on X with GitHub link
 - **Prize:** Pop ring candy
+
+# Support
+
+Be part of our passionate community of Web3 builders. [Join our Telegram](https://t.me/onpopio)!
+
+Feel free to raise issues if anything is unclear, have ideas or want to contribute to Pop!
+
+For any questions related to ink! you can also go to [Polkadot Stack Exchange](https://polkadot.stackexchange.com/) or
+ask the [ink! community](https://t.me/inkathon/1).
