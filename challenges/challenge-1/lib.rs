@@ -19,14 +19,14 @@ mod dao {
 
     #[ink(storage)]
     pub struct Dao {
-        value: bool,
+        name: String,
     }
 
     impl Dao {
         // Constructor that initializes the values for the contract.
         #[ink(constructor)]
-        pub fn new(init_value: bool) -> Self {
-            Self { value: init_value }
+        pub fn new(name: String) -> Self {
+            Self { name }
         }
 
         // Constructor that initializes the default values for the contract.
@@ -38,7 +38,7 @@ mod dao {
         #[ink(message)]
         pub fn name(&self) -> String {
             // - Returns the name of the Dao
-            todo!();
+            self.name.clone()
         }
     }
 

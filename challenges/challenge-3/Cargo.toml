@@ -11,13 +11,13 @@ polkavm-derive = "0.11.0"
 # superdao = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false, features = [
 #     "ink-as-dependency",
 # ] }
-superdao = { path = "../../multichain-superdao/contracts/superdao", default-features = false, features = [
+superdao = { path = "../../../multichain-superdao/contracts/superdao", default-features = false, features = [
     "ink-as-dependency",
 ] }
 # superda0-traits = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false, features = [
 #     "ink-as-dependency",
 # ] }
-superda0-traits = { path = "../../multichain-superdao/traits", default-features = false, features = [
+superda0-traits = { path = "../../../multichain-superdao/traits", default-features = false, features = [
     "ink-as-dependency",
 ] }
 
