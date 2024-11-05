@@ -15,12 +15,10 @@
 // - **Prize:** Sub0 Merch & ink! sports towel
 
 use crate::types::*;
-use crate::utils::call_superdao;
-use ink::{primitives::AccountId, storage::StorageVec};
-use superda0_traits::superdao::{Call, ContractCall, Proposal as SuperDaoProposal, SuperDao, Vote};
+use ink::{contract_ref, primitives::AccountId, storage::StorageVec};
+use superda0_traits::superdao::{Call, ContractCall, SuperDao, Vote};
 
 mod types;
-mod utils;
 
 #[ink::contract]
 mod dao {
@@ -28,7 +26,7 @@ mod dao {
 
     #[ink(storage)]
     pub struct Dao {
-        superdao_address: Option<AccountId>,
+        superdao: contract_ref!(SuperDao),
         name: String,
         voters: StorageVec<AccountId>,
     }
@@ -36,23 +34,15 @@ mod dao {
     impl Dao {
         // Constructor that initializes the values for the contract.
         #[ink(constructor)]
-        pub fn new(name: String, maybe_superdao_address: Option<AccountId>) -> Self {
-            if let Some(superdao_address) = maybe_superdao_address {
-                let mut superdao = call_superdao(superdao_address);
-                // Register your Dao as a member of the Superdao.
-                superdao.register_member();
-            }
-            Self {
+        pub fn new(name: String, superdao: AccountId) -> Self {
+            // Register your Dao as a member of the Superdao.
+            let mut instance = Self {
                 name,
-                superdao_address: maybe_superdao_address,
+                superdao: superdao.into(),
                 voters: StorageVec::new(),
-            }
-        }
-
-        // Constructor that initializes the default values for the contract.
-        #[ink(constructor)]
-        pub fn default() -> Self {
-            Self::new(Default::default(), None)
+            };
+            instance.superdao.register_member();
+            instance
         }
 
         #[ink(message)]
@@ -109,11 +99,6 @@ mod dao {
             }
 
             // - Success: Create a SuperDao proposal to call a contract method.
-            let mut superdao = self
-                .superdao_address
-                .map(|address| call_superdao(address))
-                .ok_or(DaoError::NoContractAddress)
-                .unwrap();
             let call = Call::Contract(ContractCall {
                 callee: self.env().caller(),
                 selector: [0; 4],
@@ -122,7 +107,7 @@ mod dao {
                 ref_time_limit: 0,
                 allow_reentry: false,
             });
-            superdao.create_proposal(call.clone());
+            self.superdao.create_proposal(call.clone());
             Ok(())
         }
 
@@ -135,13 +120,8 @@ mod dao {
             }
 
             // - Success: Vote a SuperDao proposal.
-            let mut superdao = self
-                .superdao_address
-                .map(|address| call_superdao(address))
-                .ok_or(DaoError::NoContractAddress)
-                .unwrap();
             let vote = if vote { Vote::Aye } else { Vote::Nay };
-            superdao.vote(proposal_id, vote);
+            self.superdao.vote(proposal_id, vote);
             Ok(())
         }
     }
