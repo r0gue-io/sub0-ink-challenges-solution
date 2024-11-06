@@ -7,29 +7,13 @@ edition = "2021"
 [dependencies]
 ink = { git = "https://github.com/use-ink/ink", branch = "xcm", default-features = false }
 
-# superdao = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false, features = [
-#     "ink-as-dependency",
-# ] }
-superdao = { path = "../../../multichain-superdao/contracts/superdao", default-features = false, features = [
-  "ink-as-dependency",
-] }
-# superda0-traits = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false, features = [
-#     "ink-as-dependency",
-# ] }
-superda0-traits = { path = "../../../multichain-superdao/traits", default-features = false, features = [
-  "ink-as-dependency",
-] }
+superda0-traits = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false }
 
 [lib]
 path = "lib.rs"
-crate-type = [
-  # Used for normal contract Wasm blobs.
-  "cdylib",
-  "rlib",
-]
 
 [features]
 default = ["std"]
-std = ["ink/std"]
+std = ["ink/std", "superda0-traits/std"]
 ink-as-dependency = []
 e2e-tests = []

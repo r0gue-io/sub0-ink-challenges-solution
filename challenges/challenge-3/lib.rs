@@ -15,7 +15,7 @@
 // - **Prize:** Sub0 Merch & ink! sports towel
 
 use crate::types::*;
-use ink::{contract_ref, primitives::AccountId, storage::StorageVec};
+use ink::{contract_ref, storage::StorageVec};
 use superda0_traits::superdao::{Call, ContractCall, SuperDao, Vote};
 
 mod types;
@@ -41,7 +41,10 @@ mod dao {
                 superdao: superdao.into(),
                 voters: StorageVec::new(),
             };
-            instance.superdao.register_member();
+            instance
+                .superdao
+                .register_member()
+                .expect("Failed to register as a Superdao member");
             instance
         }
 
@@ -107,7 +110,9 @@ mod dao {
                 ref_time_limit: 0,
                 allow_reentry: false,
             });
-            self.superdao.create_proposal(call.clone());
+            self.superdao
+                .create_proposal(call.clone())
+                .expect("Failed to create a Superdao's proposal");
             Ok(())
         }
 
@@ -121,7 +126,9 @@ mod dao {
 
             // - Success: Vote a SuperDao proposal.
             let vote = if vote { Vote::Aye } else { Vote::Nay };
-            self.superdao.vote(proposal_id, vote);
+            self.superdao
+                .vote(proposal_id, vote)
+                .expect("Failed to vote a Superdao's proposal");
             Ok(())
         }
     }
