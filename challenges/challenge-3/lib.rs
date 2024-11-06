@@ -15,7 +15,11 @@
 // - **Prize:** Sub0 Merch & ink! sports towel
 
 use crate::types::*;
-use ink::{contract_ref, storage::StorageVec};
+use ink::{
+    contract_ref,
+    prelude::{string::String, vec},
+    storage::StorageVec,
+};
 use superda0_traits::superdao::{Call, ContractCall, SuperDao, Vote};
 
 mod types;

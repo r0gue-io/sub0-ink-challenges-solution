@@ -13,7 +13,12 @@
 
 use crate::types::*;
 
-use ink::{contract_ref, storage::StorageVec, xcm::prelude::*};
+use ink::{
+    contract_ref,
+    prelude::{string::String, vec},
+    storage::StorageVec,
+    xcm::prelude::*,
+};
 use superda0_traits::superdao::{Call, ChainCall, SuperDao, Vote};
 
 mod types;

@@ -14,8 +14,11 @@
 //     - Verify with R0GUE DevRel, and post on X.
 // - **Prize:** sub0 merch
 
-use ink::primitives::AccountId;
-use ink::storage::{Mapping, StorageVec};
+use ink::{
+    prelude::{string::String, vec},
+    primitives::AccountId,
+    storage::{Mapping, StorageVec},
+};
 use types::*;
 
 mod types;

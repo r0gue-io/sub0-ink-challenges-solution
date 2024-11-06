@@ -6,7 +6,6 @@ edition = "2021"
 
 [dependencies]
 ink = { git = "https://github.com/use-ink/ink", branch = "xcm", default-features = false }
-
 superda0-traits = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false }
 
 [lib]
