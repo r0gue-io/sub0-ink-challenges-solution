@@ -13,11 +13,9 @@
 //     - Verify with R0GUE DevRel, and post on X.
 // - **Prize:** sub0 merch
 
-use ink::prelude::string::String;
-
 #[ink::contract]
 mod dao {
-    use super::*;
+    use ink::prelude::string::String;
 
     #[ink(storage)]
     pub struct Dao {

@@ -14,19 +14,15 @@
 //     - Verify with R0GUE DevRel, and post on X.
 // - **Prize:** Sub0 Merch & ink! sports towel
 
-use crate::types::*;
-use ink::{
-    contract_ref,
-    prelude::{string::String, vec},
-    storage::StorageVec,
-};
-use superdao_traits::{Call, ContractCall, SuperDao, Vote};
-
-mod types;
-
 #[ink::contract]
 mod dao {
-    use super::*;
+    use ink::{
+        contract_ref,
+        prelude::{string::String, vec},
+        storage::StorageVec,
+    };
+    use minidao_common::*;
+    use superdao_traits::{Call, ContractCall, SuperDao, Vote};
 
     #[ink(storage)]
     pub struct Dao {

@@ -6,16 +6,14 @@ edition = "2021"
 
 [dependencies]
 ink = { git = "https://github.com/use-ink/ink", branch = "master", default-features = false }
-superdao-traits = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false }
-
-[dev-dependencies]
-ink_e2e = { git = "https://github.com/use-ink/ink", branch = "master" }
+superdao-traits = { git = "https://github.com/r0gue-io/multichain-superdao", branch = "main", default-features = false }
+minidao-common = { path = "../../common" }
 
 [lib]
 path = "lib.rs"
 
 [features]
 default = ["std"]
-std = ["ink/std", "superda0-traits/std"]
+std = ["ink/std", "superdao-traits/std", "minidao-common/std"]
 ink-as-dependency = []
 e2e-tests = []

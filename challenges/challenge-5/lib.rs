@@ -12,21 +12,16 @@
 // - **Submission Guidelines:** Verify with R0GUE or Dedot DevRel, and post on X
 // - **Prize:** Sub0 merch & ink! sports towel
 
-use crate::types::*;
-
-use ink::{
-    contract_ref,
-    prelude::{string::String, vec},
-    storage::StorageVec,
-    xcm::prelude::*,
-};
-use superdao_traits::{Call, ChainCall, ContractCall, SuperDao, Vote};
-
-mod types;
-
 #[ink::contract]
 mod dao {
-    use super::*;
+    use ink::{
+        contract_ref,
+        prelude::{string::String, vec},
+        storage::StorageVec,
+        xcm::prelude::*,
+    };
+    use minidao_common::*;
+    use superdao_traits::{Call, ChainCall, ContractCall, SuperDao, Vote};
 
     #[ink(storage)]
     pub struct Dao {
@@ -45,7 +40,10 @@ mod dao {
                 superdao: superdao.into(),
                 voters: StorageVec::new(),
             };
-            instance.superdao.register_member();
+            instance
+                .superdao
+                .register_member()
+                .expect("Failed to register as a Superdao member");
             instance
         }
 
@@ -106,7 +104,7 @@ mod dao {
             let location = Location::here();
             let msg: Xcm<()> = Xcm::new();
             let call = Call::Chain(ChainCall::new(&location, &msg));
-            self.superdao.create_proposal(call.clone());
+            self.superdao.create_proposal(call.clone())?;
             Ok(())
         }
 
@@ -127,7 +125,7 @@ mod dao {
                 ref_time_limit: 0,
                 allow_reentry: false,
             });
-            self.superdao.create_proposal(call.clone());
+            self.superdao.create_proposal(call.clone())?;
             Ok(())
         }
 
@@ -141,7 +139,7 @@ mod dao {
 
             // - Success: Vote a SuperDao proposal.
             let vote = if vote { Vote::Aye } else { Vote::Nay };
-            self.superdao.vote(proposal_id, vote);
+            self.superdao.vote(proposal_id, vote)?;
             Ok(())
         }
     }

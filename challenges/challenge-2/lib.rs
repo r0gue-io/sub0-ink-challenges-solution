@@ -14,18 +14,23 @@
 //     - Verify with R0GUE DevRel, and post on X.
 // - **Prize:** sub0 merch
 
-use ink::{
-    prelude::{string::String, vec},
-    primitives::AccountId,
-    storage::{Mapping, StorageVec},
-};
-use types::*;
-
-mod types;
-
 #[ink::contract]
 mod dao {
-    use super::*;
+    use ink::{
+        prelude::string::String,
+        storage::{Mapping, StorageVec},
+    };
+    use minidao_common::*;
+
+    #[derive(Clone)]
+    #[cfg_attr(
+        feature = "std",
+        derive(Debug, PartialEq, Eq, ink::storage::traits::StorageLayout)
+    )]
+    #[ink::scale_derive(Encode, Decode, TypeInfo)]
+    pub struct BasicProposal {
+        pub vote_count: u32,
+    }
 
     #[ink(storage)]
     pub struct Dao {

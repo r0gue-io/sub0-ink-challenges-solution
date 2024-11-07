@@ -1,11 +1,14 @@
 [package]
-name = "challenge-4-contract"
+name = "challenge-5-contract"
 version = "0.1.0"
 authors = ["[your_name] <[your_email]>"]
 edition = "2021"
 
 [dependencies]
 ink = { git = "https://github.com/use-ink/ink", branch = "master", default-features = false }
+pop-api = { git = "https://github.com/r0gue-io/pop-node", branch = "chungquantin/feat-psp22_ref", features = [
+ "fungibles",
+] }
 superdao-traits = { git = "https://github.com/r0gue-io/multichain-superdao", branch = "main", default-features = false }
 minidao-common = { path = "../../common" }
 
@@ -14,6 +17,6 @@ path = "lib.rs"
 
 [features]
 default = ["std"]
-std = ["ink/std", "superdao-traits/std", "minidao-common/std"]
+std = ["ink/std", "superdao-traits/std", "pop-api/std", "minidao-common/std"]
 ink-as-dependency = []
 e2e-tests = []
