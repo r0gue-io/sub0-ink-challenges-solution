@@ -16,7 +16,7 @@
 mod dao {
     use ink::{
         contract_ref,
-        prelude::{string::String, vec},
+        prelude::{string::String, vec::Vec},
         storage::{Mapping, StorageVec},
         xcm::prelude::*,
     };
@@ -146,7 +146,7 @@ mod dao {
             let call = Call::Contract(ContractCall {
                 callee: self.env().caller(),
                 selector: [0; 4],
-                input: vec![],
+                input: Vec::default(),
                 transferred_value: 0,
                 ref_time_limit: 0,
                 allow_reentry: false,

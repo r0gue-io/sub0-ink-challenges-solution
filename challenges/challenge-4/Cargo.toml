@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 ink = { git = "https://github.com/use-ink/ink", branch = "master", default-features = false }
 superdao-traits = { git = "https://github.com/r0gue-io/multichain-superdao", branch = "main", default-features = false }
-minidao-common = { path = "../../common" }
+minidao-common = { path = "../../common", default-features = false }
 
 [lib]
 path = "lib.rs"

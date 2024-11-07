@@ -1,3 +1,5 @@
+#![cfg_attr(not(feature = "std"), no_std, no_main)]
+
 use ink::env::{DefaultEnvironment, Environment};
 use superdao_traits::Error as SuperdaoError;
 
