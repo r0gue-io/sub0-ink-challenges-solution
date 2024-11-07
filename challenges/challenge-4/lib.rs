@@ -13,13 +13,8 @@
 
 use crate::types::*;
 
-use ink::{
-    contract_ref,
-    prelude::{string::String, vec},
-    storage::StorageVec,
-    xcm::prelude::*,
-};
-use superda0_traits::superdao::{Call, ChainCall, SuperDao, Vote};
+use ink::{contract_ref, prelude::string::String, storage::StorageVec, xcm::prelude::*};
+use superdao_traits::{Call, ChainCall, SuperDao, Vote};
 
 mod types;
 
@@ -44,10 +39,7 @@ mod dao {
                 superdao: superdao.into(),
                 voters: StorageVec::new(),
             };
-            instance
-                .superdao
-                .register_member()
-                .expect("Failed to register as a Superdao member");
+            instance.superdao.register_member();
             instance
         }
 
@@ -108,9 +100,7 @@ mod dao {
             let location = Location::here();
             let msg: Xcm<()> = Xcm::new();
             let call = Call::Chain(ChainCall::new(&location, &msg));
-            self.superdao
-                .create_proposal(call.clone())
-                .expect("Failed to create a Superdao's proposal");
+            self.superdao.create_proposal(call.clone());
             Ok(())
         }
 
@@ -124,9 +114,7 @@ mod dao {
 
             // - Success: Vote a SuperDao proposal.
             let vote = if vote { Vote::Aye } else { Vote::Nay };
-            self.superdao
-                .vote(proposal_id, vote)
-                .expect("Failed to vote a Superdao's proposal");
+            self.superdao.vote(proposal_id, vote);
             Ok(())
         }
     }
