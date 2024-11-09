@@ -19,6 +19,6 @@ export const deployments: ContractDeployment[] = [
     id: ContractId.MINI_DAO_5,
     metadata: minidao5Metadata as any,
     network: NetworkId.POP_TESTNET,
-    address: '14r5YvZoreg6YG9d5ywBbHVxBYL9t35uJufNbUDE2eagdysq',
+    address: '5DubNw438DBQBWvnLnnCyWDFrd1ynUHSvTkBz3pQxgqh1yKp',
   },
 ];

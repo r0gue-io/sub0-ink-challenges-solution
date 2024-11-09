@@ -124,7 +124,7 @@ mod dao {
 
             // - Success: Create a SuperDao proposal to call a contract method.
             let call = Call::Contract(ContractCall {
-                callee: self.env().caller(),
+                callee: self.env().account_id(),
                 selector: [0; 4],
                 input: vec![],
                 transferred_value: 0,

@@ -3,7 +3,7 @@ import React from 'react';
 import { Proposal } from '@/components/minidao5/Proposal.tsx';
 import { useApp } from '@/providers/AppProvider.tsx';
 import { txToaster } from '@/utils/txToaster.tsx';
-import { useContractQuery, useContractTx } from 'typink';
+import { useContractTx } from 'typink';
 import { useWatchContractQuery } from 'typink/hooks/useContractQuery.ts';
 
 export function ProposalsPanel() {
