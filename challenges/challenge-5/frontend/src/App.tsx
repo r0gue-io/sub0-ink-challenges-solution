@@ -33,7 +33,7 @@ function App() {
           <Tabs index={index} onChange={handleTabsChange}>
             <TabList>
               <Tab>SuperDAO</Tab>
-              <Tab>MiniDao5</Tab>
+              <Tab>MiniDAO (Challenge 5)</Tab>
             </TabList>
 
             <TabPanels>

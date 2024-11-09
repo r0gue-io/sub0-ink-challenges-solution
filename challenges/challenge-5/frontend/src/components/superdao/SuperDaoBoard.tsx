@@ -1,6 +1,6 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import React from 'react';
-import { MembersPanel } from '@/components/superdao/MembersPanel.tsx';
+import { InfoPanel } from '@/components/superdao/InfoPanel.tsx';
 import { ProposalsPanel } from '@/components/superdao/ProposalsPanel.tsx';
 
 export function SuperDaoBoard() {
@@ -8,13 +8,13 @@ export function SuperDaoBoard() {
     <Box>
       <Tabs orientation='vertical' isLazy>
         <TabList>
-          <Tab>Members</Tab>
+          <Tab>Info</Tab>
           <Tab>Proposals</Tab>
         </TabList>
 
         <TabPanels>
           <TabPanel pt={0}>
-            <MembersPanel />
+            <InfoPanel />
           </TabPanel>
           <TabPanel pt={0}>
             <ProposalsPanel />
