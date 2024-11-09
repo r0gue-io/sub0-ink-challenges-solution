@@ -42,6 +42,12 @@ mod dao {
         }
 
         #[ink(message)]
+        pub fn get_name(&self) -> String {
+            // - Returns the name of the Dao
+            self.name.clone()
+        }
+
+        #[ink(message)]
         pub fn register_voter(&mut self) -> Result<(), DaoError> {
             let caller = self.env().caller();
             // - Error: Throw error `DaoError::VoterAlreadyRegistered` if the voter is registered

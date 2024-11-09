@@ -54,10 +54,10 @@ mod dao {
             }
         }
 
-        // Constructor that initializes the default values for the contract.
-        #[ink(constructor)]
-        pub fn default() -> Self {
-            Self::new(Default::default())
+        #[ink(message)]
+        pub fn get_name(&self) -> String {
+            // - Returns the name of the Dao
+            self.name.clone()
         }
 
         #[ink(message)]

@@ -36,7 +36,7 @@ mod dao {
         }
 
         #[ink(message)]
-        pub fn name(&self) -> String {
+        pub fn get_name(&self) -> String {
             // - Returns the name of the Dao
             self.name.clone()
         }
@@ -50,7 +50,8 @@ mod dao {
         #[ink::test]
         fn test_name() {
             let dao = Dao::new(String::from("any name"));
-            assert_eq!(dao.name, String::from("any name"));
+            assert_eq!(dao.name, dao.get_name());
+            assert_eq!(dao.get_name(), String::from("any name"));
         }
     }
 }
