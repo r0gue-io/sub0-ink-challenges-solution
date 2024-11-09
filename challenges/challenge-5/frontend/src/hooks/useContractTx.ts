@@ -99,8 +99,13 @@ export async function contractTx<
 
       // TODO check if data is a Result with error
       const {
+        data,
         raw: { gasRequired },
       } = dryRun;
+
+      if (data && data['isErr'] && data['err']) {
+        throw new Error(data['err']);
+      }
 
       const actualTxOptions: ContractTxOptions = {
         gasLimit: gasRequired,

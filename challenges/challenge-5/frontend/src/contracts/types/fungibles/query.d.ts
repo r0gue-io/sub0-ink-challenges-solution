@@ -32,7 +32,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<bigint, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -49,7 +49,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     (
       id: number,
       owner: AccountId32Like,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<bigint, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -68,7 +68,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       owner: AccountId32Like,
       spender: AccountId32Like,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<bigint, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -87,7 +87,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       to: AccountId32Like,
       value: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -110,7 +110,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       to: AccountId32Like,
       value: bigint,
       data: BytesLike,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -129,7 +129,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       spender: AccountId32Like,
       value: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -148,7 +148,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       spender: AccountId32Like,
       value: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -167,7 +167,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       spender: AccountId32Like,
       value: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -186,7 +186,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<Bytes, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -201,7 +201,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<Bytes, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -216,7 +216,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<number, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -241,7 +241,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       admin: AccountId32Like,
       minBalance: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -256,7 +256,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -277,7 +277,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       name: BytesLike,
       symbol: BytesLike,
       decimals: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -292,7 +292,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -307,7 +307,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       id: number,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<boolean, PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -329,7 +329,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       account: AccountId32Like,
       amount: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 
@@ -348,7 +348,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       id: number,
       account: AccountId32Like,
       amount: bigint,
-      options: ContractCallOptions,
+      options?: ContractCallOptions,
     ) => Promise<GenericContractCallResult<Result<[], PopApiStatusCode>, ContractCallResult<ChainApi>>>
   >;
 }

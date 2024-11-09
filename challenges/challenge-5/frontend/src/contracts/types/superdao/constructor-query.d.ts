@@ -14,11 +14,28 @@ import type { InkPrimitivesLangError } from './types';
 export interface ConstructorQuery<ChainApi extends GenericSubstrateApi> extends GenericConstructorQuery<ChainApi> {
   /**
    *
+   * @param {number} voteThreshold
+   * @param {number} votingPeriod
    * @param {ConstructorCallOptions} options
    *
    * @selector 0x9bae9d5e
    **/
   new: GenericConstructorQueryCall<
+    ChainApi,
+    (
+      voteThreshold: number,
+      votingPeriod: number,
+      options?: ConstructorCallOptions,
+    ) => Promise<GenericConstructorCallResult<[], ContractInstantiateResult<ChainApi>>>
+  >;
+
+  /**
+   *
+   * @param {ConstructorCallOptions} options
+   *
+   * @selector 0xed4b9d1b
+   **/
+  default: GenericConstructorQueryCall<
     ChainApi,
     (options?: ConstructorCallOptions) => Promise<GenericConstructorCallResult<[], ContractInstantiateResult<ChainApi>>>
   >;

@@ -1,24 +1,24 @@
-import fungiblesMetadata from '@/contracts/fungibles/fungibles.json';
+import superdaoMetadata from '@/contracts/superdao/superdao.json';
+import minidao5Metadata from '@/contracts/minidao/challenge_5_contract.json';
 import { ContractDeployment } from '@/types.ts';
 import { NetworkId } from '@/utils/networks.ts';
 
 export enum ContractId {
-  FUNGIBLES = 'fungibles',
+  SUPER_DAO = 'SUPER_DAO',
+  MINI_DAO_5 = 'MINI_DAO_5',
 }
 
-export const fungibleContractDeployments: ContractDeployment[] = [
+export const deployments: ContractDeployment[] = [
   {
-    id: ContractId.FUNGIBLES,
-    metadata: fungiblesMetadata as any,
+    id: ContractId.SUPER_DAO,
+    metadata: superdaoMetadata as any,
     network: NetworkId.POP_TESTNET,
-    address: '5GSGWox1ZxUkHBAEbm6NPAHLKD28VoQefTRBYTQuydLrxaKJ',
+    address: '16YfR3fMTxtzBUz2koYgnqym8bzRkcvzh5MCC94Xkuo2dqUC',
   },
   {
-    id: ContractId.FUNGIBLES,
-    metadata: fungiblesMetadata as any,
-    network: NetworkId.ALEPHZERO_TESTNET,
-    address: '5G5moUCkx5E2TD3CcRWvweg7rpCLngRmwukuKdaohvfBBmXr',
+    id: ContractId.MINI_DAO_5,
+    metadata: minidao5Metadata as any,
+    network: NetworkId.POP_TESTNET,
+    address: '12TASnshqD5wGQs1RGJUMQofbVBSXCJ15L8Ce24TxcHcVA7o',
   },
 ];
-
-export const deployments = [...fungibleContractDeployments];

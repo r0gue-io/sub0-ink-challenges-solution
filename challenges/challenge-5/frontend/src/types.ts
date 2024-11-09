@@ -31,7 +31,7 @@ export interface InjectedAccount {
   type?: KeypairType;
 }
 
-export type Pop<T extends any[]> = T extends [...infer U, any] ? U : never;
+export type Pop<T extends any[]> = T extends [...infer U, any?] ? U : [];
 export type Args<T> = T extends [] ? { args?: [] | undefined } : { args: T };
 export type OmitNever<T> = { [K in keyof T as T[K] extends never ? never : K]: T[K] };
 
