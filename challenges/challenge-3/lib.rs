@@ -14,15 +14,15 @@
 //     - Verify with R0GUE DevRel, and post on X.
 // - **Prize:** Sub0 Merch & ink! sports towel
 
-use crate::types::*;
-use ink::{contract_ref, storage::StorageVec};
-use superda0_traits::superdao::{Call, ContractCall, SuperDao, Vote};
-
-mod types;
-
 #[ink::contract]
 mod dao {
-    use super::*;
+    use ink::{
+        contract_ref,
+        prelude::{string::String, vec},
+        storage::StorageVec,
+    };
+    use minidao_common::*;
+    use superdao_traits::{Call, ContractCall, SuperDao, Vote};
 
     #[ink(storage)]
     pub struct Dao {
@@ -41,11 +41,14 @@ mod dao {
                 superdao: superdao.into(),
                 voters: StorageVec::new(),
             };
+            instance.superdao.register_member();
             instance
-                .superdao
-                .register_member()
-                .expect("Failed to register as a Superdao member");
-            instance
+        }
+
+        #[ink(message)]
+        pub fn get_name(&self) -> String {
+            // - Returns the name of the Dao
+            self.name.clone()
         }
 
         #[ink(message)]
@@ -110,9 +113,7 @@ mod dao {
                 ref_time_limit: 0,
                 allow_reentry: false,
             });
-            self.superdao
-                .create_proposal(call.clone())
-                .expect("Failed to create a Superdao's proposal");
+            self.superdao.create_proposal(call.clone());
             Ok(())
         }
 
@@ -126,9 +127,7 @@ mod dao {
 
             // - Success: Vote a SuperDao proposal.
             let vote = if vote { Vote::Aye } else { Vote::Nay };
-            self.superdao
-                .vote(proposal_id, vote)
-                .expect("Failed to vote a Superdao's proposal");
+            self.superdao.vote(proposal_id, vote);
             Ok(())
         }
     }
@@ -136,6 +135,7 @@ mod dao {
     #[cfg(test)]
     mod tests {
         use super::*;
+        use crate::dao::Dao;
 
         #[ink::test]
         fn test_create_superdao_contract_call_proposal() {

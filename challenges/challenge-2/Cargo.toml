@@ -5,18 +5,14 @@ authors = ["[your_name] <[your_email]>"]
 edition = "2021"
 
 [dependencies]
-ink = { git = "https://github.com/use-ink/ink", branch = "xcm", default-features = false }
+ink = { git = "https://github.com/use-ink/ink", branch = "master", default-features = false }
+minidao-common = { path = "../../common", default-features = false }
 
 [lib]
 path = "lib.rs"
-crate-type = [
-  # Used for normal contract Wasm blobs.
-  "cdylib",
-  "rlib",
-]
 
 [features]
 default = ["std"]
-std = ["ink/std"]
+std = ["ink/std", "minidao-common/std"]
 ink-as-dependency = []
 e2e-tests = []

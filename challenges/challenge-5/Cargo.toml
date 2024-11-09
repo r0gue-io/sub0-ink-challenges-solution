@@ -5,15 +5,15 @@ authors = ["[your_name] <[your_email]>"]
 edition = "2021"
 
 [dependencies]
-ink = { git = "https://github.com/use-ink/ink", branch = "xcm", default-features = false }
-
-superda0-traits = { git = "https://github.com/r0gue-io/multichain-superdao", default-features = false }
+ink = { git = "https://github.com/use-ink/ink", branch = "master", default-features = false }
+superdao-traits = { git = "https://github.com/r0gue-io/multichain-superdao", branch = "main", default-features = false }
+minidao-common = { path = "../../common", default-features = false }
 
 [lib]
 path = "lib.rs"
 
 [features]
 default = ["std"]
-std = ["ink/std", "superda0-traits/std"]
+std = ["ink/std", "superdao-traits/std", "minidao-common/std"]
 ink-as-dependency = []
 e2e-tests = []

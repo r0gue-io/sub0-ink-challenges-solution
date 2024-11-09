@@ -12,16 +12,16 @@
 // - **Submission Guidelines:** Verify with R0GUE or Dedot DevRel, and post on X
 // - **Prize:** Sub0 merch & ink! sports towel
 
-use crate::types::*;
-
-use ink::{prelude::{vec, string::{String}}, contract_ref, storage::StorageVec, xcm::prelude::*};
-use superda0_traits::superdao::{Call, ChainCall, ContractCall, SuperDao, Vote};
-
-mod types;
-
 #[ink::contract]
 mod dao {
-    use super::*;
+    use ink::{
+        contract_ref,
+        prelude::{string::String, vec},
+        storage::StorageVec,
+        xcm::prelude::*,
+    };
+    use minidao_common::*;
+    use superdao_traits::{Call, ChainCall, ContractCall, SuperDao, Vote};
 
     #[ink(storage)]
     pub struct Dao {
@@ -45,6 +45,12 @@ mod dao {
                 .register_member()
                 .expect("Failed to register as a Superdao member");
             instance
+        }
+
+        #[ink(message)]
+        pub fn get_name(&self) -> String {
+            // - Returns the name of the Dao
+            self.name.clone()
         }
 
         #[ink(message)]
@@ -104,9 +110,7 @@ mod dao {
             let location = Location::here();
             let msg: Xcm<()> = Xcm::new();
             let call = Call::Chain(ChainCall::new(&location, &msg));
-            self.superdao
-                .create_proposal(call.clone())
-                .expect("Failed to create a Superdao's proposal");
+            self.superdao.create_proposal(call.clone())?;
             Ok(())
         }
 
@@ -127,9 +131,7 @@ mod dao {
                 ref_time_limit: 0,
                 allow_reentry: false,
             });
-            self.superdao
-                .create_proposal(call.clone())
-                .expect("Failed to create a Superdao's proposal");
+            self.superdao.create_proposal(call.clone())?;
             Ok(())
         }
 
@@ -143,9 +145,7 @@ mod dao {
 
             // - Success: Vote a SuperDao proposal.
             let vote = if vote { Vote::Aye } else { Vote::Nay };
-            self.superdao
-                .vote(proposal_id, vote)
-                .expect("Failed to vote a Superdao's proposal");
+            self.superdao.vote(proposal_id, vote)?;
             Ok(())
         }
     }
