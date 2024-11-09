@@ -1,7 +1,7 @@
 import { Box, Heading, Spinner, Text } from '@chakra-ui/react';
 import React from 'react';
-import useContractQuery from '@/hooks/useContractQuery.ts';
 import { useApp } from '@/providers/AppProvider.tsx';
+import { useContractQuery } from 'typink';
 
 export function MembersPanel() {
   const { superDaoContract: contract } = useApp();

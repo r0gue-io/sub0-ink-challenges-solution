@@ -6,9 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import App from '@/App';
 import { deployments } from '@/contracts/deployments.ts';
 import { AppProvider } from '@/providers/AppProvider.tsx';
-import TypinkProvider from '@/providers/TypinkProvider.tsx';
 import { theme } from '@/theme';
 import { NetworkId } from '@/utils/networks.ts';
+import { TypinkProvider } from 'typink';
 
 const DEFAULT_CALLER = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // Alice
 

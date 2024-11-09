@@ -1,7 +1,6 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Link } from '@chakra-ui/react';
-import useBalance from '@/hooks/useBalance.ts';
-import { useTypink } from '@/providers/TypinkProvider.tsx';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { useTypink, useBalance } from 'typink';
 
 const DEFAULT_FAUCET_URL = 'https://github.com/use-ink/contracts-ui/blob/master/FAUCETS.md';
 
@@ -10,7 +9,7 @@ export default function BalanceInsufficientAlert() {
 
   const balance = useBalance(selectedAccount?.address);
 
-  if (balance === undefined || balance > 0n) return null;
+  if (balance === undefined || balance.free > 0n) return null;
 
   return (
     <Alert status='warning' mb={4}>

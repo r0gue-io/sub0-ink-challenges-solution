@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react';
 import { VoterInfo } from '@/components/minidao5/VoterInfo.tsx';
-import { useTypink } from '@/providers/TypinkProvider.tsx';
+import { useTypink } from 'typink';
 
 export function DaoInfo() {
   const { selectedAccount } = useTypink();

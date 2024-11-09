@@ -11,9 +11,8 @@ import {
   Stack,
   useDisclosure,
 } from '@chakra-ui/react';
-import { useTypink } from '@/providers/TypinkProvider.tsx';
-import Wallet from '@/wallets/Wallet';
 import { ThemingProps } from '@chakra-ui/system';
+import { Wallet, useTypink } from 'typink';
 
 interface WalletButtonProps {
   walletInfo: Wallet;

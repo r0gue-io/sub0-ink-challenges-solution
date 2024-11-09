@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
-import useContractTx from '@/hooks/useContractTx.ts';
 import { useApp } from '@/providers/AppProvider.tsx';
 import { txToaster } from '@/utils/txToaster.tsx';
+import { useContractTx } from 'typink';
 
 export function ProposalsPanel() {
   const { minidao5Contract: contract } = useApp();

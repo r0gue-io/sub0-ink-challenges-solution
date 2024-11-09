@@ -1,8 +1,7 @@
 import { Box, Button, Text } from '@chakra-ui/react';
-import useContractQuery from '@/hooks/useContractQuery.ts';
-import useContractTx from '@/hooks/useContractTx.ts';
 import { useApp } from '@/providers/AppProvider.tsx';
 import { txToaster } from '@/utils/txToaster.tsx';
+import { useContractQuery, useContractTx } from 'typink';
 
 interface VoterInfoProps {
   address: string;

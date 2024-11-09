@@ -14,7 +14,7 @@
 
 use crate::types::*;
 
-use ink::{contract_ref, storage::StorageVec, xcm::prelude::*};
+use ink::{prelude::{vec, string::{String}}, contract_ref, storage::StorageVec, xcm::prelude::*};
 use superda0_traits::superdao::{Call, ChainCall, ContractCall, SuperDao, Vote};
 
 mod types;

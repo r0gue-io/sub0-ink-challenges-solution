@@ -2,10 +2,9 @@ import { Box, Button, Flex, Menu, MenuButton, MenuDivider, MenuItem, MenuList, T
 import { useEffect, useMemo } from 'react';
 import ConnectedWallet from '@/components/dialog/ConnectedWallet.tsx';
 import WalletSelection, { ButtonStyle } from '@/components/dialog/WalletSelection.tsx';
-import useBalances from '@/hooks/useBalances.ts';
-import useDisplayAddress from '@/hooks/useDisplayAddress';
-import { useTypink } from '@/providers/TypinkProvider.tsx';
+import useDisplayAddress from '@/hooks/useDisplayAddress.tsx';
 import { formatBalance, shortenAddress } from '@/utils/string.ts';
+import { useTypink, useBalances } from 'typink';
 
 export default function AccountSelection() {
   const { accounts, selectedAccount, setSelectedAccount, signOut } = useTypink();

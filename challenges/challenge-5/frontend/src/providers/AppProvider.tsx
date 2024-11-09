@@ -2,9 +2,9 @@ import { createContext, useContext } from 'react';
 import { ContractId } from '@/contracts/deployments.ts';
 import { Challenge5ContractContractApi } from '@/contracts/types/challenge5-contract';
 import { SuperdaoContractApi } from '@/contracts/types/superdao';
-import useContract from '@/hooks/useContract.ts';
 import { Props } from '@/types.ts';
 import { Contract } from 'dedot/contracts';
+import { useContract } from 'typink';
 
 interface AppContextProps {
   superDaoContract?: Contract<SuperdaoContractApi>;

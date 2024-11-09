@@ -1,10 +1,8 @@
-import { Box, Code, Flex, Heading, Spinner, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Proposal } from '@/components/superdao/Proposal.tsx';
-import { SuperdaoContractApi } from '@/contracts/types/superdao';
-import useContractQuery from '@/hooks/useContractQuery.ts';
 import { useApp } from '@/providers/AppProvider.tsx';
-import { Contract } from 'dedot/contracts';
+import { useContractQuery } from 'typink';
 
 export function ProposalsPanel() {
   const { superDaoContract: contract } = useApp();

@@ -2,7 +2,7 @@ import { Box, Container, Flex } from '@chakra-ui/react';
 import React from 'react';
 import AccountSelection from '@/components/AccountSelection.tsx';
 import WalletSelection from '@/components/dialog/WalletSelection.tsx';
-import { useTypink } from '@/providers/TypinkProvider.tsx';
+import { useTypink } from 'typink';
 
 export default function MainHeader() {
   const { injectedApi } = useTypink();

@@ -2,9 +2,6 @@ import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import React from 'react';
 import { MembersPanel } from '@/components/superdao/MembersPanel.tsx';
 import { ProposalsPanel } from '@/components/superdao/ProposalsPanel.tsx';
-import { ContractId } from '@/contracts/deployments.ts';
-import { SuperdaoContractApi } from '@/contracts/types/superdao';
-import useContract from '@/hooks/useContract.ts';
 
 export function SuperDaoBoard() {
   return (

@@ -1,7 +1,6 @@
 import { Box, Code, Text } from '@chakra-ui/react';
 import React from 'react';
 import type { Superda0TraitsSuperdaoProposal } from '@/contracts/types/superdao';
-import useContractTx from '@/hooks/useContractTx.ts';
 import { useApp } from '@/providers/AppProvider.tsx';
 import { Props } from '@/types.ts';
 

@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Menu, MenuButton, MenuItem, MenuList, Spinner, useMediaQuery } from '@chakra-ui/react';
-import { useTypink } from '@/providers/TypinkProvider.tsx';
 import { NetworkId, SUPPORTED_NETWORKS } from '@/utils/networks';
+import { useTypink } from 'typink';
 
 function NetworkStatusIndicator() {
   const { ready } = useTypink();
