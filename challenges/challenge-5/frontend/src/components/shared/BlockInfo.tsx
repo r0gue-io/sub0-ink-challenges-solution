@@ -16,6 +16,7 @@ export function BlockInfo() {
     }
 
     let unsub1: any, unsub2: any;
+    let done = false;
 
     if (client instanceof DedotClient) {
       unsub1 = client.chainHead.on('bestBlock', (block: PinnedBlock) => {
@@ -30,18 +31,31 @@ export function BlockInfo() {
         .chain_subscribeNewHeads((newHead) => {
           setBestBlock(newHead.number);
         })
-        .then((unsub) => (unsub1 = unsub))
+        .then((unsub) => {
+          if (done) {
+            unsub().catch(console.error);
+          } else {
+            unsub1 = unsub;
+          }
+        })
         .catch(console.error);
 
       client.rpc
         .chain_subscribeFinalizedHeads((newHead) => {
           setFinalizedBlock(newHead.number);
         })
-        .then((unsub) => (unsub2 = unsub))
+        .then((unsub) => {
+          if (done) {
+            unsub().catch(console.error);
+          } else {
+            unsub2 = unsub;
+          }
+        })
         .catch(console.error);
     }
 
     return () => {
+      done = true;
       unsub1 && unsub1();
       unsub2 && unsub2();
     };
