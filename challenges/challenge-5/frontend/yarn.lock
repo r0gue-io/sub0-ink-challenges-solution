@@ -2713,7 +2713,7 @@ __metadata:
     rollup-plugin-analyzer: "npm:^4.0.0"
     serve: "npm:^14.2.1"
     typescript: "npm:5.4.5"
-    typink: "npm:0.0.1-next.cc1c2346.21"
+    typink: "npm:0.0.1-next.dd1d772b.23"
     vite: "npm:^5.2.0"
     vite-tsconfig-paths: "npm:^4.0.3"
     vitest: "npm:^0.34.6"
@@ -6293,14 +6293,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typink@npm:0.0.1-next.cc1c2346.21":
-  version: 0.0.1-next.cc1c2346.21
-  resolution: "typink@npm:0.0.1-next.cc1c2346.21"
+"typink@npm:0.0.1-next.dd1d772b.23":
+  version: 0.0.1-next.dd1d772b.23
+  resolution: "typink@npm:0.0.1-next.dd1d772b.23"
   dependencies:
     dedot: "npm:^0.6.0"
     react: "npm:^18.3.1"
     react-use: "npm:^17.5.1"
-  checksum: 10/8af8cbcebd204adc36b3724781a14c666456b71046802f69f561d9f8b0d66cb6a660d27f41791611a59fcf8efbbab292c299449cbf787d4f5fde101a855ab15f
+  checksum: 10/12affe42473fe04142038e2ebeda4d8369649754fd42342601d2bdb422feed714687828e9bd6e8f66d256f80aeb4bd2d70d963f261a81ce431b65d5cc138a3e6
   languageName: node
   linkType: hard
 

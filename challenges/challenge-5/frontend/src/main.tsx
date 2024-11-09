@@ -25,7 +25,7 @@ root.render(
           theme='light'
           autoClose={5_000}
           hideProgressBar
-          limit={2}
+          limit={5}
         />
       </AppProvider>
     </TypinkProvider>
