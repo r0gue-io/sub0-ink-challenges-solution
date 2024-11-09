@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prettify": "npx prettier --write \"src/{**/*,*}.{js,ts,jsx,tsx,json}\"",
-    "generate-types": "dedot typink -m ./src/contracts/fungibles/fungibles.contract -o ./src/contracts/types && dedot typink -m ./src/contracts/superdao/superdao.contract -o ./src/contracts/types && dedot typink -m ./src/contracts/minidao/challenge_5_contract.contract -o ./src/contracts/types"
+    "generate-types": "dedot typink -m ./src/contracts/superdao/superdao.contract -o ./src/contracts/types && dedot typink -m ./src/contracts/minidao/challenge_5_contract.contract -o ./src/contracts/types"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",

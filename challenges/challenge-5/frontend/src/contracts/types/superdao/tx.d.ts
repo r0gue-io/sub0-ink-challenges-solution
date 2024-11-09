@@ -7,7 +7,7 @@ import type {
   ContractTxOptions,
   ContractSubmittableExtrinsic,
 } from 'dedot/contracts';
-import type { Superda0TraitsSuperdaoCallLike, Superda0TraitsSuperdaoVote } from './types';
+import type { SuperdaoTraitsCallLike, SuperdaoTraitsVote } from './types';
 
 export interface ContractTx<ChainApi extends GenericSubstrateApi> extends GenericContractTx<ChainApi> {
   /**
@@ -46,30 +46,26 @@ export interface ContractTx<ChainApi extends GenericSubstrateApi> extends Generi
 
   /**
    *
-   * @param {Superda0TraitsSuperdaoCallLike} call
+   * @param {SuperdaoTraitsCallLike} call
    * @param {ContractTxOptions} options
    *
    * @selector 0x7c5f540f
    **/
   superDaoCreateProposal: GenericContractTxCall<
     ChainApi,
-    (call: Superda0TraitsSuperdaoCallLike, options: ContractTxOptions) => ContractSubmittableExtrinsic<ChainApi>
+    (call: SuperdaoTraitsCallLike, options: ContractTxOptions) => ContractSubmittableExtrinsic<ChainApi>
   >;
 
   /**
    *
    * @param {number} propId
-   * @param {Superda0TraitsSuperdaoVote} vote
+   * @param {SuperdaoTraitsVote} vote
    * @param {ContractTxOptions} options
    *
    * @selector 0x5002b426
    **/
   superDaoVote: GenericContractTxCall<
     ChainApi,
-    (
-      propId: number,
-      vote: Superda0TraitsSuperdaoVote,
-      options: ContractTxOptions,
-    ) => ContractSubmittableExtrinsic<ChainApi>
+    (propId: number, vote: SuperdaoTraitsVote, options: ContractTxOptions) => ContractSubmittableExtrinsic<ChainApi>
   >;
 }

@@ -18,11 +18,15 @@ export type Challenge5ContractDao = { superdao: AccountId32; name: string; voter
 
 export type InkPrimitivesLangError = 'CouldNotReadInput';
 
-export type Challenge5ContractDaoError =
-  | 'VoterAlreadyRegistered'
-  | 'VoterNotRegistered'
-  | 'VoterAlreadyVoted'
-  | 'ProposalDoesNotExist'
-  | 'NoContractAddress';
+export type MinidaoCommonDaoError =
+  | { type: 'VoterAlreadyRegistered' }
+  | { type: 'VoterNotRegistered' }
+  | { type: 'VoterAlreadyVoted' }
+  | { type: 'ProposalDoesNotExist' }
+  | { type: 'PrevotePeriodIsNotEnded' }
+  | { type: 'NoContractAddress' }
+  | { type: 'SuperdaoError'; value: SuperdaoTraitsError };
+
+export type SuperdaoTraitsError = 'DispatchFailed' | 'AlreadyMember' | 'NotMember' | 'ProposalNotFound';
 
 export type InkEnvNoChainExtension = null;

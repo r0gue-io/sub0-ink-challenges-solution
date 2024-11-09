@@ -11,10 +11,10 @@ import type {
 } from 'dedot/contracts';
 import type {
   InkPrimitivesLangError,
-  Superda0TraitsSuperdaoError,
-  Superda0TraitsSuperdaoCallLike,
-  Superda0TraitsSuperdaoVote,
-  Superda0TraitsSuperdaoProposal,
+  SuperdaoTraitsError,
+  SuperdaoTraitsCallLike,
+  SuperdaoTraitsVote,
+  SuperdaoTraitsProposal,
 } from './types';
 
 export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends GenericContractQuery<ChainApi> {
@@ -43,7 +43,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Superda0TraitsSuperdaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], SuperdaoTraitsError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -59,7 +59,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
 
   /**
    *
-   * @param {Superda0TraitsSuperdaoCallLike} call
+   * @param {SuperdaoTraitsCallLike} call
    * @param {ContractCallOptions} options
    *
    * @selector 0x7c5f540f
@@ -67,15 +67,15 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
   superDaoCreateProposal: GenericContractQueryCall<
     ChainApi,
     (
-      call: Superda0TraitsSuperdaoCallLike,
+      call: SuperdaoTraitsCallLike,
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Superda0TraitsSuperdaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<number, SuperdaoTraitsError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
    *
    * @param {number} propId
-   * @param {Superda0TraitsSuperdaoVote} vote
+   * @param {SuperdaoTraitsVote} vote
    * @param {ContractCallOptions} options
    *
    * @selector 0x5002b426
@@ -84,9 +84,9 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       propId: number,
-      vote: Superda0TraitsSuperdaoVote,
+      vote: SuperdaoTraitsVote,
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Superda0TraitsSuperdaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], SuperdaoTraitsError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -125,7 +125,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     (
       index: number,
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Superda0TraitsSuperdaoProposal | undefined, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<SuperdaoTraitsProposal | undefined, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -138,7 +138,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Array<Superda0TraitsSuperdaoProposal>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Array<[number, SuperdaoTraitsProposal]>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -153,8 +153,39 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     (
       proposalId: number,
       options?: ContractCallOptions,
-    ) => Promise<
-      GenericContractCallResult<Array<[AccountId32, Superda0TraitsSuperdaoVote]>, ContractCallResult<ChainApi>>
-    >
+    ) => Promise<GenericContractCallResult<Array<[AccountId32, SuperdaoTraitsVote]>, ContractCallResult<ChainApi>>>
+  >;
+
+  /**
+   *
+   * @param {ContractCallOptions} options
+   *
+   * @selector 0x9b365037
+   **/
+  superDaoQueryGetVoteThreshold: GenericContractQueryCall<
+    ChainApi,
+    (options?: ContractCallOptions) => Promise<GenericContractCallResult<number, ContractCallResult<ChainApi>>>
+  >;
+
+  /**
+   *
+   * @param {ContractCallOptions} options
+   *
+   * @selector 0x2c14957d
+   **/
+  superDaoQueryGetVotingPeriod: GenericContractQueryCall<
+    ChainApi,
+    (options?: ContractCallOptions) => Promise<GenericContractCallResult<number, ContractCallResult<ChainApi>>>
+  >;
+
+  /**
+   *
+   * @param {ContractCallOptions} options
+   *
+   * @selector 0x867a6620
+   **/
+  superDaoQueryGetActiveProposals: GenericContractQueryCall<
+    ChainApi,
+    (options?: ContractCallOptions) => Promise<GenericContractCallResult<Array<number>, ContractCallResult<ChainApi>>>
   >;
 }

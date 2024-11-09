@@ -6,7 +6,11 @@ import { useContractQuery } from 'typink';
 
 export function ProposalsPanel() {
   const { superDaoContract: contract } = useApp();
-  const { data: proposals, isLoading } = useContractQuery({ contract, fn: 'superDaoQueryGetProposals' });
+  const {
+    data: proposals,
+    isLoading,
+    refresh: refreshProposals,
+  } = useContractQuery({ contract, fn: 'superDaoQueryGetProposals' });
 
   return (
     <>
@@ -16,8 +20,15 @@ export function ProposalsPanel() {
         {proposals && proposals.length === 0 && <Text>No proposals</Text>}
         {proposals && (
           <Flex direction='column' gap={2}>
-            {proposals.map((p, idx) => (
-              <Proposal proposal={p} key={idx} />
+            {proposals.map(([index, p], idx) => (
+              <Proposal
+                proposal={p}
+                index={index}
+                key={idx}
+                onExecuted={() => {
+                  refreshProposals();
+                }}
+              />
             ))}
           </Flex>
         )}

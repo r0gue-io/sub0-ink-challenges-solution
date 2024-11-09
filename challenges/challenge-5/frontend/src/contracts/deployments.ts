@@ -1,5 +1,5 @@
-import superdaoMetadata from '@/contracts/superdao/superdao.json';
 import minidao5Metadata from '@/contracts/minidao/challenge_5_contract.json';
+import superdaoMetadata from '@/contracts/superdao/superdao.json';
 import { ContractDeployment } from '@/types.ts';
 import { NetworkId } from '@/utils/networks.ts';
 
@@ -13,12 +13,12 @@ export const deployments: ContractDeployment[] = [
     id: ContractId.SUPER_DAO,
     metadata: superdaoMetadata as any,
     network: NetworkId.POP_TESTNET,
-    address: '16YfR3fMTxtzBUz2koYgnqym8bzRkcvzh5MCC94Xkuo2dqUC',
+    address: '136WER67N7eEumefDxANeez12fGuoj1amJTPa2rFEmNxWtjU',
   },
   {
     id: ContractId.MINI_DAO_5,
     metadata: minidao5Metadata as any,
     network: NetworkId.POP_TESTNET,
-    address: '12TASnshqD5wGQs1RGJUMQofbVBSXCJ15L8Ce24TxcHcVA7o',
+    address: '14r5YvZoreg6YG9d5ywBbHVxBYL9t35uJufNbUDE2eagdysq',
   },
 ];

@@ -4,17 +4,17 @@ import type { AccountId32, FixedBytes, Bytes, AccountId32Like, BytesLike } from 
 
 export type InkStorageLazyMapping = {};
 
-export type Superda0TraitsSuperdaoProposal = { call: Superda0TraitsSuperdaoCall; votingPeriodEnd: number };
+export type SuperdaoTraitsProposal = { call: SuperdaoTraitsCall; votingPeriodEnd: number };
 
-export type Superda0TraitsSuperdaoCall =
-  | { type: 'Contract'; value: Superda0TraitsSuperdaoContractCall }
-  | { type: 'Chain'; value: Superda0TraitsSuperdaoChainCall };
+export type SuperdaoTraitsCall =
+  | { type: 'Contract'; value: SuperdaoTraitsContractCall }
+  | { type: 'Chain'; value: SuperdaoTraitsChainCall };
 
-export type Superda0TraitsSuperdaoCallLike =
-  | { type: 'Contract'; value: Superda0TraitsSuperdaoContractCallLike }
-  | { type: 'Chain'; value: Superda0TraitsSuperdaoChainCallLike };
+export type SuperdaoTraitsCallLike =
+  | { type: 'Contract'; value: SuperdaoTraitsContractCallLike }
+  | { type: 'Chain'; value: SuperdaoTraitsChainCallLike };
 
-export type Superda0TraitsSuperdaoContractCall = {
+export type SuperdaoTraitsContractCall = {
   callee: AccountId32;
   selector: FixedBytes<4>;
   input: Bytes;
@@ -23,7 +23,7 @@ export type Superda0TraitsSuperdaoContractCall = {
   allowReentry: boolean;
 };
 
-export type Superda0TraitsSuperdaoContractCallLike = {
+export type SuperdaoTraitsContractCallLike = {
   callee: AccountId32Like;
   selector: FixedBytes<4>;
   input: BytesLike;
@@ -32,9 +32,9 @@ export type Superda0TraitsSuperdaoContractCallLike = {
   allowReentry: boolean;
 };
 
-export type Superda0TraitsSuperdaoChainCall = { dest: Bytes; msg: Bytes };
+export type SuperdaoTraitsChainCall = { dest: Bytes; msg: Bytes };
 
-export type Superda0TraitsSuperdaoChainCallLike = { dest: BytesLike; msg: BytesLike };
+export type SuperdaoTraitsChainCallLike = { dest: BytesLike; msg: BytesLike };
 
 export type InkStorageTraitsImplsResolverKey = {};
 
@@ -42,7 +42,7 @@ export type InkStorageTraitsImplsAutoKey = {};
 
 export type InkStorageTraitsImplsManualKey = {};
 
-export type Superda0TraitsSuperdaoVote = 'Aye' | 'Nay';
+export type SuperdaoTraitsVote = 'Aye' | 'Nay';
 
 export type Superdao = {
   members: Array<AccountId32>;
@@ -56,6 +56,6 @@ export type Superdao = {
 
 export type InkPrimitivesLangError = 'CouldNotReadInput';
 
-export type Superda0TraitsSuperdaoError = 'DispatchFailed' | 'AlreadyMember' | 'NotMember' | 'ProposalNotFound';
+export type SuperdaoTraitsError = 'DispatchFailed' | 'AlreadyMember' | 'NotMember' | 'ProposalNotFound';
 
 export type InkEnvNoChainExtension = null;

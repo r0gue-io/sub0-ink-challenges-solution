@@ -9,9 +9,20 @@ import type {
   GenericContractCallResult,
   ContractCallResult,
 } from 'dedot/contracts';
-import type { Challenge5ContractDaoError, InkPrimitivesLangError } from './types';
+import type { InkPrimitivesLangError, MinidaoCommonDaoError } from './types';
 
 export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends GenericContractQuery<ChainApi> {
+  /**
+   *
+   * @param {ContractCallOptions} options
+   *
+   * @selector 0xa148a32a
+   **/
+  getName: GenericContractQueryCall<
+    ChainApi,
+    (options?: ContractCallOptions) => Promise<GenericContractCallResult<string, ContractCallResult<ChainApi>>>
+  >;
+
   /**
    *
    * @param {ContractCallOptions} options
@@ -22,7 +33,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Challenge5ContractDaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], MinidaoCommonDaoError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -35,7 +46,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Challenge5ContractDaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], MinidaoCommonDaoError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -63,7 +74,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Challenge5ContractDaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], MinidaoCommonDaoError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -76,7 +87,7 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
     ChainApi,
     (
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Challenge5ContractDaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], MinidaoCommonDaoError>, ContractCallResult<ChainApi>>>
   >;
 
   /**
@@ -93,6 +104,6 @@ export interface ContractQuery<ChainApi extends GenericSubstrateApi> extends Gen
       proposalId: number,
       vote: boolean,
       options?: ContractCallOptions,
-    ) => Promise<GenericContractCallResult<Result<[], Challenge5ContractDaoError>, ContractCallResult<ChainApi>>>
+    ) => Promise<GenericContractCallResult<Result<[], MinidaoCommonDaoError>, ContractCallResult<ChainApi>>>
   >;
 }

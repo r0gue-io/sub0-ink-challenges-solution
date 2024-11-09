@@ -6,7 +6,7 @@ import { ProposalsPanel } from '@/components/superdao/ProposalsPanel.tsx';
 export function SuperDaoBoard() {
   return (
     <Box>
-      <Tabs orientation='vertical'>
+      <Tabs orientation='vertical' isLazy>
         <TabList>
           <Tab>Members</Tab>
           <Tab>Proposals</Tab>
