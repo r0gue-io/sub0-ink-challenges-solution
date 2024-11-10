@@ -97,7 +97,10 @@ mod dao {
         }
 
         #[ink(message)]
-        pub fn create_contract_call_proposal(&mut self) -> Result<(), DaoError> {
+        pub fn create_superdao_contract_call_proposal(
+            &mut self,
+            call: ContractCall,
+        ) -> Result<(), DaoError> {
             let caller = self.env().caller();
             // - Error: Throw error `DaoError::VoterNotRegistered` if the voter is not registered
             if !self.has_voter(caller) {
@@ -105,15 +108,7 @@ mod dao {
             }
 
             // - Success: Create a SuperDao proposal to call a contract method.
-            let call = Call::Contract(ContractCall {
-                callee: self.env().caller(),
-                selector: [0; 4],
-                input: vec![],
-                transferred_value: 0,
-                ref_time_limit: 0,
-                allow_reentry: false,
-            });
-            self.superdao.create_proposal(call.clone());
+            self.superdao.create_proposal(Call::Contract(call).clone());
             Ok(())
         }
 

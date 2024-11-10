@@ -99,7 +99,10 @@ mod dao {
         }
 
         #[ink(message)]
-        pub fn create_superdao_cross_chain_proposal(&mut self) -> Result<(), DaoError> {
+        pub fn create_superdao_cross_chain_proposal(
+            &mut self,
+            call: ChainCall,
+        ) -> Result<(), DaoError> {
             let caller = self.env().caller();
             // - Error: Throw error `DaoError::VoterNotRegistered` if the voter is not registered
             if !self.has_voter(caller) {
@@ -107,15 +110,16 @@ mod dao {
             }
 
             // - Success: Create a SuperDao proposal to execute a cross-chain message.
-            let location = Location::here();
-            let msg: Xcm<()> = Xcm::new();
-            let call = Call::Chain(ChainCall::new(&location, &msg));
+            let call = Call::Chain(call);
             self.superdao.create_proposal(call.clone())?;
             Ok(())
         }
 
         #[ink(message)]
-        pub fn create_contract_call_proposal(&mut self) -> Result<(), DaoError> {
+        pub fn create_contract_call_proposal(
+            &mut self,
+            call: ContractCall,
+        ) -> Result<(), DaoError> {
             let caller = self.env().caller();
             // - Error: Throw error `DaoError::VoterNotRegistered` if the voter is not registered
             if !self.has_voter(caller) {
@@ -123,14 +127,7 @@ mod dao {
             }
 
             // - Success: Create a SuperDao proposal to call a contract method.
-            let call = Call::Contract(ContractCall {
-                callee: self.env().account_id(),
-                selector: [0; 4],
-                input: vec![],
-                transferred_value: 0,
-                ref_time_limit: 0,
-                allow_reentry: false,
-            });
+            let call = Call::Contract(call);
             self.superdao.create_proposal(call.clone())?;
             Ok(())
         }
